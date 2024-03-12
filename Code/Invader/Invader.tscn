@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b38qmfr6mbgjl"]
+
+[ext_resource type="Script" path="res://Invader/Invader.gd" id="1_kpuro"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2rcdm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hytbj"]
+
+[node name="Invader" type="Area3D"]
+script = ExtResource("1_kpuro")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_2rcdm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_hytbj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.253356, 0, 0, 0, 0.253356, 0, 0, 0, 0.253356, 0.441771, -0.163038, 0.505589)
+mesh = SubResource("BoxMesh_hytbj")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.253356, 0, 0, 0, 0.253356, 0, 0, 0, 0.253356, -0.492579, -0.184205, 0.505589)
+mesh = SubResource("BoxMesh_hytbj")

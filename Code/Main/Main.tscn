@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://b5uc7iqtucmws"]
+
+[ext_resource type="PackedScene" uid="uid://cgmi8axpua2u5" path="res://Ship/Ship.tscn" id="1_bypu3"]
+[ext_resource type="PackedScene" uid="uid://b38qmfr6mbgjl" path="res://Invader/Invader.tscn" id="2_vfus7"]
+[ext_resource type="PackedScene" uid="uid://butltys7x2a56" path="res://Lazer/Lazer.tscn" id="3_0l57q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p76ef"]
+albedo_color = Color(0.211765, 0.152941, 0.137255, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dsgws"]
+size = Vector2(27.815, 14.6)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q4c84"]
+sky_top_color = Color(0.490196, 0.443137, 0.368627, 1)
+sky_horizon_color = Color(0.356863, 0.341176, 0.317647, 1)
+ground_horizon_color = Color(0.403922, 0.388235, 0.360784, 1)
+
+[sub_resource type="Sky" id="Sky_b8i41"]
+sky_material = SubResource("ProceduralSkyMaterial_q4c84")
+
+[sub_resource type="Environment" id="Environment_wf1hj"]
+background_mode = 2
+background_color = Color(0.219608, 0.219608, 0.219608, 1)
+sky = SubResource("Sky_b8i41")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Main" type="Node"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_p76ef")
+mesh = SubResource("PlaneMesh_dsgws")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.658269, -0.651929, 0.376391, 1.99638e-09, 0.5, 0.866025, -0.752783, -0.570078, 0.329134, 9.51382, 6.62323, -9.53674e-07)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wf1hj")
+
+[node name="Ship" parent="." instance=ExtResource("1_bypu3")]
+
+[node name="Invader" parent="." instance=ExtResource("2_vfus7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.87111, 7.129, 0)
+
+[node name="Invader2" parent="." instance=ExtResource("2_vfus7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.48962, 7.129, 0)
+
+[node name="Invader3" parent="." instance=ExtResource("2_vfus7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13165, 7.129, 0)
+
+[node name="Invader4" parent="." instance=ExtResource("2_vfus7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77336, 1.49099, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17453, 11.7933)
+fov = 67.5
+
+[node name="Lazer" parent="." instance=ExtResource("3_0l57q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81542, 4.11219, 0)

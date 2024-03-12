@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://butltys7x2a56"]
+
+[ext_resource type="Script" path="res://Lazer/Lazer.gd" id="1_yttmn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o7aes"]
+radius = 0.224
+height = 1.846
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fckvo"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 3.2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a52lc"]
+radius = 0.225
+height = 1.85
+
+[node name="Lazer" type="Area3D"]
+script = ExtResource("1_yttmn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_o7aes")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_fckvo")
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_a52lc")
