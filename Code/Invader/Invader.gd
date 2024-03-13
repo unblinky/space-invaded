@@ -4,6 +4,7 @@ class_name Invader
 var row_height = 1.0 # meters.
 var speed: float = 5.0 # m / sec.
 var bounds: float = 10.0
+var score_board: ScoreBoard
 
 func _ready():
 	area_entered.connect(OnAreaEntered)
@@ -23,6 +24,7 @@ func _process(delta):
 
 func OnAreaEntered(other_area: Area3D):
 	if other_area is Lazer:
+		score_board.UpdateScore(13)
 		other_area.queue_free()
 		queue_free()
 	if other_area is Ship:

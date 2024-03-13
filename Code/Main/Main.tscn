@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://b5uc7iqtucmws"]
 
+[ext_resource type="Script" path="res://Main/Main.gd" id="1_6iyd5"]
 [ext_resource type="PackedScene" uid="uid://cgmi8axpua2u5" path="res://Ship/Ship.tscn" id="1_bypu3"]
-[ext_resource type="PackedScene" uid="uid://b38qmfr6mbgjl" path="res://Invader/Invader.tscn" id="2_vfus7"]
-[ext_resource type="PackedScene" uid="uid://butltys7x2a56" path="res://Lazer/Lazer.tscn" id="3_0l57q"]
+[ext_resource type="PackedScene" uid="uid://yhijrjk7ninl" path="res://ScoreBoard/ScoreBoard.tscn" id="4_5b10y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p76ef"]
 albedo_color = Color(0.211765, 0.152941, 0.137255, 1)
@@ -26,6 +26,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="Main" type="Node"]
+script = ExtResource("1_6iyd5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_p76ef")
@@ -40,21 +41,10 @@ environment = SubResource("Environment_wf1hj")
 
 [node name="Ship" parent="." instance=ExtResource("1_bypu3")]
 
-[node name="Invader" parent="." instance=ExtResource("2_vfus7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.87111, 7.129, 0)
-
-[node name="Invader2" parent="." instance=ExtResource("2_vfus7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.48962, 7.129, 0)
-
-[node name="Invader3" parent="." instance=ExtResource("2_vfus7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13165, 7.129, 0)
-
-[node name="Invader4" parent="." instance=ExtResource("2_vfus7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77336, 1.49099, 0)
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17453, 11.7933)
 fov = 67.5
 
-[node name="Lazer" parent="." instance=ExtResource("3_0l57q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81542, 4.11219, 0)
+[node name="ScoreBoard" parent="." instance=ExtResource("4_5b10y")]
+offset_right = 92.0
+offset_bottom = 50.0
