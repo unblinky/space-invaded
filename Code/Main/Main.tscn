@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5uc7iqtucmws"]
+[gd_scene load_steps=11 format=3 uid="uid://b5uc7iqtucmws"]
 
 [ext_resource type="PackedScene" uid="uid://cgmi8axpua2u5" path="res://Ship/Ship.tscn" id="1_bypu3"]
+[ext_resource type="Script" path="res://Main/Main.gd" id="1_y22ys"]
 [ext_resource type="PackedScene" uid="uid://b38qmfr6mbgjl" path="res://Invader/Invader.tscn" id="2_vfus7"]
 [ext_resource type="PackedScene" uid="uid://butltys7x2a56" path="res://Lazer/Lazer.tscn" id="3_0l57q"]
+[ext_resource type="PackedScene" uid="uid://bnf7gakl2ocls" path="res://ScoreBoard/ScoreBoard.tscn" id="5_1ebet"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p76ef"]
 albedo_color = Color(0.211765, 0.152941, 0.137255, 1)
@@ -26,6 +28,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="Main" type="Node"]
+script = ExtResource("1_y22ys")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_p76ef")
@@ -58,3 +61,5 @@ fov = 67.5
 
 [node name="Lazer" parent="." instance=ExtResource("3_0l57q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81542, 4.11219, 0)
+
+[node name="ScoreBoard" parent="." instance=ExtResource("5_1ebet")]
