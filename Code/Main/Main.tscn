@@ -48,3 +48,22 @@ fov = 67.5
 [node name="ScoreBoard" parent="." instance=ExtResource("4_5b10y")]
 offset_right = 92.0
 offset_bottom = 50.0
+
+[node name="GameOver" type="PanelContainer" parent="."]
+offset_left = 488.0
+offset_top = 234.0
+offset_right = 667.0
+offset_bottom = 363.0
+
+[node name="VBox" type="VBoxContainer" parent="GameOver"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOver/VBox"]
+layout_mode = 2
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="GameOver/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Play Again?"
